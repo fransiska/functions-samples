@@ -1,3 +1,8 @@
+# Note
+- Enable google sign in in firebase authentication
+- Make sure gmail account security is lowered (allow secure app)
+- If mail didn't get sent, that means there's a security problem, check email to allow it
+
 # Send Confirmation Emails with Cloud Functions
 
 This sample shows how to send a confirmation emails to users who are subscribing/un-subscribing to a newsletter.

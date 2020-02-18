@@ -31,11 +31,10 @@ const mailTransport = nodemailer.createTransport({
 });
 
 // Sends an email confirmation when a user changes his mailing list subscription.
-exports.sendEmailConfirmation = functions.database.ref('/users/{uid}').onWrite(async (change) => {
+exports.sendEmailConfirmation = functions.database.ref('/users/{uid}').onWrite(async (change,context) => {
   const snapshot = change.after;
   const val = snapshot.val();
-
-  if (!snapshot.changed('subscribedToMailingList')) {
+  if (change.before.val()['subscribedToMailingList'] == change.after.val()['subscribedToMailingList']) {
     return null;
   }
 
